@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace OpenCC.NET
 {
@@ -15,21 +16,13 @@ namespace OpenCC.NET
         /// 讀取字典檔
         /// </summary>
         /// <param name="filePath"></param>
-        protected void LoadDictionary(string filePath)
+        protected void LoadDictionary(string dicName)
         {
-            using (var r = new StreamReader(filePath))
+            var s = Assembly.GetExecutingAssembly().GetManifestResourceStream($"OpenCC.NET.Dictionaries.{dicName}.json");
+            using (var r = new StreamReader(s))
             {
-                try
-                {
-                    var data = r.ReadToEnd();
-
-
-                    Dictionaries = JsonConvert.DeserializeObject<Dictionary<string, List<List<string>>>>(data);
-                }
-                catch (Exception e)
-                {
-
-                }
+                var data = r.ReadToEnd();
+                Dictionaries = JsonConvert.DeserializeObject<Dictionary<string, List<List<string>>>>(data);
             }
         }
 

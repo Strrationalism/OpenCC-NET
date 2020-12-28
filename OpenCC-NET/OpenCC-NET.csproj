@@ -8,20 +8,22 @@
     <Copyright>MIT</Copyright>
     <Authors>OpenCC.NET</Authors>
     <Company>OpenCC.NET</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Dictionaries\opencc-dictionary.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Dictionaries\opencc-dictionary.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Dictionaries\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Dictionaries\opencc-dictionary.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

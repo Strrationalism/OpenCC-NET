@@ -1,36 +1,12 @@
-﻿using OpenCC.NET.Toolkits;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace OpenCC.NET
 {
     public class OpenChineseConverter : AbstractChineseConverter
     {
-        public const string DictionaryPath = "~\\Dictionaries\\opencc-dictionary.json";
-
-        public OpenChineseConverter()
+        public OpenChineseConverter(string dicName = "opencc-dictionary")
         {
-            FilePathHelper helper = new FilePathHelper();
-
-            // Get File Absolute Path
-            string filePath = helper.GetAbsolutePath(DictionaryPath);
-
-            // Load Dictionary
-            LoadDictionary(filePath);
-        }
-        public OpenChineseConverter(string dictionaryPath)
-        {
-            string filePath = dictionaryPath;
-
-            if (string.IsNullOrEmpty(filePath))
-            {
-                FilePathHelper helper = new FilePathHelper();
-
-                // Get File Absolute Path
-                filePath = helper.GetAbsolutePath(DictionaryPath);
-            }
-
-            // Load Dictionary
-            LoadDictionary(filePath);
+            LoadDictionary(dicName);
         }
 
 

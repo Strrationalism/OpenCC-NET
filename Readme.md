@@ -1,6 +1,11 @@
 # OpenCC-NET
 
+* 此程序是[saviorxzero98/OpenCC-NET](https://github.com/saviorxzero98/OpenCC-NET)的衍生程序，主要进行一些使用上的简化操作。在此向原作者saviorxzero98表示感谢。
 
+### 此版本与原版的不同之处
+* 将字典移入DLL内部作为资源，引用时不需要再额外提供字典文件
+* 移除了读取文件的代码和FilePathHelper，加载字典已经不再需要这些内容
+* 将版本号改为了1.0.1并已经上传到NuGet（在遵守Apache License的前提下）
 
 ## Introduction 
 
@@ -12,11 +17,10 @@
 
 ## Installation 
 
-* 兩種安裝方法：
+* 三种安装方法：
     1. 將 **OpenCC-NET** 專案加入到開發方案 (Solution) 中，並且將專案加入參考 (Reference)
-    2. 從 Release 目錄取出 **OpenCC-NET** 專案編譯完成的 DLL 檔案，並且 DLL 檔案加入參考
-
-
+    2. 在此目录下运行dotnet publish -c Release，之后从publish目录取出DLL文件并引用
+    3. 在NuGet上搜索安装此库（推荐）
 
 ## Usage 
 
